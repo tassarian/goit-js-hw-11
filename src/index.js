@@ -73,7 +73,7 @@ const loadMoreImg = async () => {
   pixabayApi.page += 1
   try {
     const { data } = await pixabayApi.fetchImagesByQuery();
-    galleryBox.insertAdjacentHTML('beforeend', createImgCard(data.hits));git
+    galleryBox.insertAdjacentHTML('beforeend', createImgCard(data.hits));
 
     if (pixabayApi.page === Math.ceil(data.totalHits / pixabayApi.perPage)) {
       loadMoreBtn.classList.add('is-hidden');
@@ -82,6 +82,7 @@ const loadMoreImg = async () => {
 
   } catch (err) {
     Notiflix.Notify.failure(err.message)
+    console.log(err);
   }
   
 }
@@ -120,16 +121,6 @@ function cleanData() {
   loadMoreBtn.classList.add('is-hidden');
   pageCount = 1
 }
-
-
-  
-
-window.scrollBy({
-  top: 600,
-  behavior: "smooth",
-});
-
-
 
 searchFormEl.addEventListener('submit', onSearchFormSubmit)
 
