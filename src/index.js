@@ -40,7 +40,6 @@ const onSearchFormSubmit = async (e) => {
   
     try {
       const { data } = await pixabayApi.fetchImagesByQuery();
-      console.log(data);
 
       if (data.hits.length === 0) {
         cleanData();
@@ -65,7 +64,6 @@ const onSearchFormSubmit = async (e) => {
       
     } catch (err) {
         Notiflix.Notify.failure(err.message);
-        console.log(err)
   }
 }
 
@@ -82,7 +80,6 @@ const loadMoreImg = async () => {
 
   } catch (err) {
     Notiflix.Notify.failure(err.message)
-    console.log(err);
   }
   
 }
